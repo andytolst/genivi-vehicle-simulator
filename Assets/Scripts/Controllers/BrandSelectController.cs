@@ -20,7 +20,7 @@ public class BrandSelectController : BaseSelectController
 
     public List<BrandChoice> choices;
     public float dimAlpha = 0.3f;
-    public new int currentChoice = 0;
+    public new int currentChoice2 = 0;
 
     public void Awake()
     {
@@ -33,7 +33,7 @@ public class BrandSelectController : BaseSelectController
     public override void OnEnable()
     {
         base.OnEnable();
-        choices[currentChoice].displayObject.GetComponent<GuiTextAlphaFade>().targetAlpha = 1f;
+        choices[currentChoice2].displayObject.GetComponent<GuiTextAlphaFade>().targetAlpha = 1f;
     }
 
     protected override void OnBack()
@@ -43,25 +43,25 @@ public class BrandSelectController : BaseSelectController
 
     protected override void OnSelectLeft()
     {
-        if(currentChoice > 0)
+        if(currentChoice2 > 0)
         {
-            LightChoice(currentChoice, true);
-            LightChoice(--currentChoice, false);
+            LightChoice(currentChoice2, true);
+            LightChoice(--currentChoice2, false);
         }
     }
 
     protected override void OnSelectRight()
     {
-        if(currentChoice < choices.Count - 1)
+        if(currentChoice2 < choices.Count - 1)
         {
-            LightChoice(currentChoice, true);
-            LightChoice(++currentChoice, false);
+            LightChoice(currentChoice2, true);
+            LightChoice(++currentChoice2, false);
         }
     }
 
     protected override void OnSelectConfirm()
     {
-        AppController.Instance.currentSessionSettings.selectedBrand = choices[currentChoice].brand;
+        AppController.Instance.currentSessionSettings.selectedBrand = choices[currentChoice2].brand;
         AppController.Instance.LoadCarSelect();
     }
 
