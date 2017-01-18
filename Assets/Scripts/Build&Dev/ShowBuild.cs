@@ -31,7 +31,7 @@ public class ShowBuild : MonoBehaviour {
     public static string GetGitBuildNumber()
     {
         //TODO: handle building from other branches?
-        string hash = File.ReadAllText(".git/refs/heads/master");
+        string hash = "abcdefghijklmn";//File.ReadAllText(".git/refs/heads/master");
 
         string timestamp = System.DateTime.Now.ToString("yyyymmdd");
 
